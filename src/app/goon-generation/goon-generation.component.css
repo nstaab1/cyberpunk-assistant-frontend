@@ -1,0 +1,36 @@
+.stats{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.stat-container {
+  color: white;
+  background-color: red;
+  width: 60px;
+  padding: 10px;
+}
+
+.stat-input{
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid red;
+  border-radius: 4px;
+  padding: 12px 2px;
+  /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+}
+
+.mat-stat-input {
+  width: 100%;
+  color: black;
+
+}
+
+.stat-input:focus{
+  border: 2px solid #555;
+  outline: none;
+
+}
+
+mat-label {
+  color: black;
+}

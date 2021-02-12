@@ -1,0 +1,195 @@
+<button mat-raised-button (click)="generateGoons()" color="primary">
+  Generate Goon
+</button>
+
+<div *ngFor="let goon of goons">
+  <div class="stats">
+    <div class="stat-container">
+      <div class="stat-style-container">
+        <label for="int">INT</label>
+        <br />
+        <input
+          class="stat-input"
+          id="int"
+          type="number"
+          value="{{ goon.mentalStats.intelligence }}"
+        />
+      </div>
+    </div>
+    <div class="stat-container">
+      <div class="stat-style-container">
+        <label for="ref">REF</label>
+        <br />
+        <input
+          class="stat-input"
+          id="ref"
+          type="number"
+          value="{{ goon.combatStats.reflexes }}"
+        />
+      </div>
+    </div>
+    <div class="stat-container">
+      <div class="stat-style-container">
+        <label for="dex">DEX</label>
+        <br />
+        <input
+          class="stat-input"
+          id="dex"
+          type="number"
+          value="{{ goon.physicalStats.dexterity }}"
+        />
+      </div>
+    </div>
+    <div class="stat-container">
+      <div class="stat-style-container">
+        <label for="tech">TECH</label>
+        <br />
+        <input
+          class="stat-input"
+          id="tech"
+          type="number"
+          value="{{ goon.combatStats.technique }}"
+        />
+      </div>
+    </div>
+    <div class="stat-container">
+      <div class="stat-style-container">
+        <label for="cool">COOL</label>
+        <br />
+        <input
+          class="stat-input"
+          id="cool"
+          type="number"
+          value="{{ goon.mentalStats.cool }}"
+        />
+      </div>
+    </div>
+    <div class="stat-container">
+      <div class="stat-style-container">
+        <label for="will">WILL</label>
+        <br />
+        <input
+          class="stat-input"
+          id="will"
+          type="number"
+          value="{{ goon.mentalStats.willpower }}"
+        />
+      </div>
+    </div>
+    <div class="stat-container">
+      <div class="stat-style-container">
+        <label for="luck">LUCK</label>
+        <br />
+        <input
+          class="stat-input"
+          id="luck"
+          type="number"
+          value="{{ goon.fortuneStats.luck }}"
+        />
+      </div>
+    </div>
+    <div class="stat-container">
+      <div class="stat-style-container">
+        <label for="move">MOVE</label>
+        <br />
+        <input
+          class="stat-input"
+          id="move"
+          type="number"
+          value="{{ goon.physicalStats.movement }}"
+        />
+      </div>
+    </div>
+    <div class="stat-container">
+      <div class="stat-style-container">
+        <label for="body">BODY</label>
+        <br />
+        <input
+          class="stat-input"
+          id="body"
+          type="number"
+          value="{{ goon.physicalStats.body }}"
+        />
+      </div>
+    </div>
+    <div class="stat-container">
+      <div class="stat-style-container">
+        <label for="emp">EMP</label>
+        <br />
+        <input
+          class="stat-input"
+          id="emp"
+          type="number"
+          value="{{ goon.mentalStats.empathy }}"
+        />
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="stats">
+    <!-- Hitpoints -->
+    <div class="stat-container">
+      <div class="stat-style-container">
+        <label for="int">Hitpoints</label>
+        <br />
+        <input
+          class="stat-input"
+          id="int"
+          type="number"
+          value="{{ goon.hitPoints }}"
+        />
+      </div>
+    </div>
+    <!-- SERIOUSLY WOUNDED -->
+    <div class="stat-container">
+      <div class="stat-style-container">
+        <label for="swound">Seriously Wounded</label>
+        <br />
+        <input
+          class="stat-input"
+          id="swound"
+          type="number"
+          value="{{ goon.seriouslyWounded }}"
+        />
+      </div>
+    </div>
+    <!-- DEATH SAVE -->
+    <div class="stat-container">
+      <div class="stat-style-container">
+        <label for="death-save">Death Save</label>
+        <br />
+        <input
+          class="stat-input"
+          id="death-save"
+          type="number"
+          value="{{ goon.deathSave }}"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h4><strong>Weapons</strong></h4>
+      <div *ngFor="let rangedWeapon of goon.rangedWeapons">
+        <p>
+          {{ rangedWeapon.weaponType }} {{ rangedWeapon.singleShotDamage }}D6
+        </p>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <h4>Armor</h4>
+      <div>
+        <p>
+          Head: {{ goon.headArmor.armorType }}
+          {{ goon.headArmor.stoppingPower }}
+        </p>
+        <p>
+          Body: {{ goon.bodyArmor.armorType }}
+          {{ goon.bodyArmor.stoppingPower }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <div></div>
+</div>
