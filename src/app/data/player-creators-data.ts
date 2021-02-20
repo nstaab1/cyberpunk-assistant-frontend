@@ -153,7 +153,7 @@ export const FEEL_ABOUT_MOST_PEOPLE: string[] = [
   'People are tools. Use them for your own goals then discard them.',
   'Every person is a valuable individual.',
   'People are obstacles to be destroyed if they cross me.',
-  // tslint:disable-next-line:quotemark
+  // eslint-disable-next-line @typescript-eslint/quotes
   "People are untrustworthy. Don't depend on anyone",
   'Wipe ‘em all out and let the cockroaches take over.',
   'People are wonderful!',

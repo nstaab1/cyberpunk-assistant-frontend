@@ -1,7 +1,8 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import {
   AFFECTATIONS,
   CHILDHOOD_ENVIRONMENTS,
@@ -16,14 +17,12 @@ import {
   FRIEND_RELATIONSHIPS,
   HAIRSTYLES,
   LANGUAGES,
-  LIFE_GOALS,
   LOVE_AFFAIR_TRAGEDIES,
   MOST_VALUED_PERSON,
   MOST_VALUED_POSSESSION,
   MOST_VALUED_THING,
   ORIGINAL_FAMILY_BACKGROUNDS,
   PERSONALITY_OPTIONS,
-  ROLES,
 } from '../data/player-creators-data';
 
 @Component({
