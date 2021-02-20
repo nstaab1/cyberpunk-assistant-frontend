@@ -1,0 +1,10 @@
+<form [formGroup]="lifeGoals">
+  <mat-form-field>
+    <mat-label>Life Goals?</mat-label>
+    <mat-select formControlName="lifeGoal">
+      <mat-option *ngFor="let lifeGoal of lifeGoalData" [value]="lifeGoal">
+        {{ lifeGoal }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
