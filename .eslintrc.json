@@ -21,7 +21,7 @@
         "no-empty-function": "off",
         "@typescript-eslint/no-empty-function": [
           "error",
-          { "allow": ["constructors"] }
+          { "allow": ["constructors", "methods"] }
         ],
         "@angular-eslint/component-selector": [
           "error",
@@ -31,6 +31,7 @@
             "style": "kebab-case"
           }
         ],
+        // " @angular-eslint/no-empty-lifecycle-method": false,
         "@angular-eslint/directive-selector": [
           "error",
           {
@@ -48,9 +49,10 @@
       }
     },
     {
-      "files": ["*.html"],
+      "files": ["*.component.html"],
       "extends": [
         "plugin:@angular-eslint/template/recommended",
+
         "prettier/@typescript-eslint",
         "plugin:prettier/recommended"
       ],

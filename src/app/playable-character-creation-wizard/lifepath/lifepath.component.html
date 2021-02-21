@@ -1,0 +1,132 @@
+<form [formGroup]="lifepath">
+  <mat-form-field>
+    <mat-label>Personality</mat-label>
+    <mat-select formControlName="personality">
+      <mat-option
+        *ngFor="let personalityOption of personalityOptions"
+        [value]="personalityOption"
+      >
+        {{ personalityOption }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Clothing Style</mat-label>
+    <mat-select formControlName="clothingStyle">
+      <mat-option
+        *ngFor="let clothingStyle of clothingStyles"
+        [value]="clothingStyle"
+      >
+        {{ clothingStyle }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Hairstyle</mat-label>
+    <mat-select formControlName="hairstyle">
+      <mat-option *ngFor="let hairstyle of hairstyles" [value]="hairstyle">
+        {{ hairstyle }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Affectation You Are Never Without</mat-label>
+    <mat-select formControlName="affectation">
+      <mat-option
+        *ngFor="let affectation of affectations"
+        [value]="affectation"
+      >
+        {{ affectation }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br />
+
+  <mat-form-field>
+    <mat-label>What Do You Value Most?</mat-label>
+    <mat-select formControlName="valueMost">
+      <mat-option
+        *ngFor="let mostValuedThingItem of mostValuedThingList"
+        [value]="mostValuedThingItem"
+      >
+        {{ mostValuedThingItem }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>How Do You Feel About Most People?</mat-label>
+    <mat-select formControlName="feelingAboutPeople">
+      <mat-option
+        *ngFor="let feelAboutPeopleItem of feelAboutPeopleList"
+        [value]="feelAboutPeopleItem"
+      >
+        {{ feelAboutPeopleItem }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Most Valued Person in Your Life?</mat-label>
+    <mat-select formControlName="mostValuedPerson">
+      <mat-option
+        *ngFor="let mostValuedPersonItem of mostValuedPersonList"
+        [value]="mostValuedPersonItem"
+      >
+        {{ mostValuedPersonItem }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Most Valued Possession You Own?</mat-label>
+    <mat-select formControlName="mostValuedPossession">
+      <mat-option
+        *ngFor="let mostValuedPossessionItem of mostValuedPossesionList"
+        [value]="mostValuedPossessionItem"
+      >
+        {{ mostValuedPossessionItem }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Original Family Background?</mat-label>
+    <mat-select formControlName="familyBackground">
+      <mat-option
+        *ngFor="let familyBackground of familyBackgrounds"
+        [value]="familyBackground"
+      >
+        {{ familyBackground }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Childhood Environment</mat-label>
+    <mat-select formControlName="childhoodEnvironment">
+      <mat-option
+        *ngFor="let childhoodEnvironment of childhoodEnvironments"
+        [value]="childhoodEnvironment"
+      >
+        {{ childhoodEnvironment }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Family Crisis</mat-label>
+    <mat-select formControlName="familyCrisis">
+      <mat-option
+        *ngFor="let familyCrisis of familyCrises"
+        [value]="familyCrisis"
+      >
+        {{ familyCrisis }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>

@@ -1,0 +1,24 @@
+<form [formGroup]="friends">
+  <button (click)="addFriend()">Add Friend</button>
+  <div
+    *ngFor="let friend of friends.controls; let i = index"
+    [formGroupName]="i"
+  >
+    <mat-form-field>
+      <mat-label>Friend {{ i + 1 }} Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Friend {{ i + 1 }} Relationship</mat-label>
+      <mat-select formControlName="relationshipToYou">
+        <mat-option
+          *ngFor="let friendRelationship of friendRelationships"
+          [value]="friendRelationship"
+        >
+          {{ friendRelationship }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</form>

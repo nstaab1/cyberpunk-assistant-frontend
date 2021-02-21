@@ -1,0 +1,70 @@
+<form [formGroup]="enemies">
+  <button (click)="addEnemies()">Add Enemy</button>
+
+  <div
+    *ngFor="let enemy of enemies.controls; let i = index"
+    [formGroupName]="i"
+  >
+    <mat-form-field>
+      <mat-label>Enemy {{ i + 1 }} Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Enemy {{ i + 1 }} Relationship</mat-label>
+      <mat-select formControlName="enemyType">
+        <mat-option
+          *ngFor="let enemyRelationship of enemyRelationships"
+          [value]="enemyRelationship"
+        >
+          {{ enemyRelationship }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Enemy {{ i + 1 }}, What Caused it?</mat-label>
+      <mat-select formControlName="enemyCause">
+        <mat-option *ngFor="let enemyCause of enemyCauses" [value]="enemyCause">
+          {{ enemyCause }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Enemy {{ i + 1 }}, Who was wronged?</mat-label>
+      <mat-select formControlName="wrongedParty">
+        <mat-option value="Player"> You </mat-option>
+        <mat-option value="Enemy"> Them </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Enemy {{ i + 1 }}, What Can They Throw at You?</mat-label>
+      <mat-select formControlName="enemySize" #size>
+        <mat-option *ngFor="let enemySize of enemySizes" [value]="enemySize">
+          {{ enemySize }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="enemyNeedsDiceRoll(size.value)">
+      <mat-label>Enemy {{ i + 1 }}, # of friends</mat-label>
+      <input matInput formControlName="enemyfriends" type="number" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label
+        >Enemy {{ i + 1 }}, What are You/They Gonna do About it?</mat-label
+      >
+      <mat-select formControlName="revengeType">
+        <mat-option
+          *ngFor="let enemyRevengeType of enemyRevengeTypes"
+          [value]="enemyRevengeType"
+        >
+          {{ enemyRevengeType }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</form>

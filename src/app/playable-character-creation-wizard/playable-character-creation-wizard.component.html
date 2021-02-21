@@ -3,297 +3,25 @@
   <mat-step [stepControl]="demographics" editable="true">
     <ng-template matStepLabel>Fill out your name</ng-template>
     <app-demographics [(demographics)]="demographics"></app-demographics>
-    <div>
-      <button mat-button matStepperNext>Next</button>
-    </div>
+    <button mat-button matStepperNext>Next</button>
   </mat-step>
 
-  <mat-step [stepControl]="lifepath" editable="true">
-    <form [formGroup]="lifepath">
-      <ng-template matStepLabel>Life Path</ng-template>
+  <!-- <mat-step [stepControl]="lifepath" editable="true">
+    <ng-template matStepLabel>Life Path</ng-template>
+    <app-lifepath [(lifepath)]="lifepath"></app-lifepath>
+    <button mat-button matStepperNext>Next</button>
+  </mat-step> -->
 
-      <mat-form-field>
-        <mat-label>Cultural Region</mat-label>
-        <mat-select formControlName="culturalRegion">
-          <mat-option
-            *ngFor="let culturalRegion of culturalRegions"
-            [value]="culturalRegion"
-          >
-            {{ culturalRegion }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Language</mat-label>
-        <input
-          type="text"
-          matInput
-          formControlName="language"
-          [matAutocomplete]="auto"
-        />
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option
-            *ngFor="let language of languageOptions | async"
-            [value]="language"
-          >
-            {{ language }}
-          </mat-option>
-        </mat-autocomplete>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Personality</mat-label>
-        <mat-select formControlName="personality">
-          <mat-option
-            *ngFor="let personalityOption of personalityOptions"
-            [value]="personalityOption"
-          >
-            {{ personalityOption }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Clothing Style</mat-label>
-        <mat-select formControlName="clothingStyle">
-          <mat-option
-            *ngFor="let clothingStyle of clothingStyles"
-            [value]="clothingStyle"
-          >
-            {{ clothingStyle }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Hairstyle</mat-label>
-        <mat-select formControlName="hairstyle">
-          <mat-option *ngFor="let hairstyle of hairstyles" [value]="hairstyle">
-            {{ hairstyle }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Affectation You Are Never Without</mat-label>
-        <mat-select formControlName="affectation">
-          <mat-option
-            *ngFor="let affectation of affectations"
-            [value]="affectation"
-          >
-            {{ affectation }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <br />
-
-      <mat-form-field>
-        <mat-label>What Do You Value Most?</mat-label>
-        <mat-select formControlName="valueMost">
-          <mat-option
-            *ngFor="let mostValuedThingItem of mostValuedThingList"
-            [value]="mostValuedThingItem"
-          >
-            {{ mostValuedThingItem }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>How Do You Feel About Most People?</mat-label>
-        <mat-select formControlName="feelingAboutPeople">
-          <mat-option
-            *ngFor="let feelAboutPeopleItem of feelAboutPeopleList"
-            [value]="feelAboutPeopleItem"
-          >
-            {{ feelAboutPeopleItem }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Most Valued Person in Your Life?</mat-label>
-        <mat-select formControlName="mostValuedPerson">
-          <mat-option
-            *ngFor="let mostValuedPersonItem of mostValuedPersonList"
-            [value]="mostValuedPersonItem"
-          >
-            {{ mostValuedPersonItem }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Most Valued Possession You Own?</mat-label>
-        <mat-select formControlName="mostValuedPossession">
-          <mat-option
-            *ngFor="let mostValuedPossessionItem of mostValuedPossesionList"
-            [value]="mostValuedPossessionItem"
-          >
-            {{ mostValuedPossessionItem }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Original Family Background?</mat-label>
-        <mat-select formControlName="familyBackground">
-          <mat-option
-            *ngFor="let familyBackground of familyBackgrounds"
-            [value]="familyBackground"
-          >
-            {{ familyBackground }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Childhood Environment</mat-label>
-        <mat-select formControlName="childhoodEnvironment">
-          <mat-option
-            *ngFor="let childhoodEnvironment of childhoodEnvironments"
-            [value]="childhoodEnvironment"
-          >
-            {{ childhoodEnvironment }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field>
-        <mat-label>Family Crisis</mat-label>
-        <mat-select formControlName="familyCrisis">
-          <mat-option
-            *ngFor="let familyCrisis of familyCrises"
-            [value]="familyCrisis"
-          >
-            {{ familyCrisis }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-
-  <mat-step [stepControl]="friends" editable="true">
-    <form [formGroup]="friends">
-      <ng-template matStepLabel>List Your Friends</ng-template>
-
-      <button (click)="addFriend()">Add Friend</button>
-
-      <div
-        *ngFor="let friend of friends.controls; let i = index"
-        [formGroupName]="i"
-      >
-        <mat-form-field>
-          <mat-label>Friend {{ i + 1 }} Name</mat-label>
-          <input matInput formControlName="name" />
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-label>Friend {{ i + 1 }} Relationship</mat-label>
-          <mat-select formControlName="relationshipToYou">
-            <mat-option
-              *ngFor="let friendRelationship of friendRelationships"
-              [value]="friendRelationship"
-            >
-              {{ friendRelationship }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
+  <!-- <mat-step [stepControl]="friends" editable="true">
+    <ng-template matStepLabel>List Your Friends</ng-template>
+    <app-friends [(friends)]="friends"></app-friends>
+    <button mat-button matStepperNext>Next</button>
+  </mat-step> -->
 
   <mat-step [stepControl]="enemies" editable="true">
-    <form [formGroup]="enemies">
-      <ng-template matStepLabel>List Your Enemies</ng-template>
-
-      <button (click)="addEnemies()">Add Enemy</button>
-
-      <div
-        *ngFor="let enemy of enemies.controls; let i = index"
-        [formGroupName]="i"
-      >
-        <mat-form-field>
-          <mat-label>Enemy {{ i + 1 }} Name</mat-label>
-          <input matInput formControlName="name" />
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-label>Enemy {{ i + 1 }} Relationship</mat-label>
-          <mat-select formControlName="enemyType">
-            <mat-option
-              *ngFor="let enemyRelationship of enemyRelationships"
-              [value]="enemyRelationship"
-            >
-              {{ enemyRelationship }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-label>Enemy {{ i + 1 }}, What Caused it?</mat-label>
-          <mat-select formControlName="enemyCause">
-            <mat-option
-              *ngFor="let enemyCause of enemyCauses"
-              [value]="enemyCause"
-            >
-              {{ enemyCause }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-label>Enemy {{ i + 1 }}, Who was wronged?</mat-label>
-          <mat-select formControlName="wrongedParty">
-            <mat-option [value]="Player"> You </mat-option>
-            <mat-option [value]="Enemy"> Them </mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-label>Enemy {{ i + 1 }}, What Can They Throw at You?</mat-label>
-          <mat-select formControlName="enemySize" #size>
-            <mat-option
-              *ngFor="let enemySize of enemySizes"
-              [value]="enemySize"
-            >
-              {{ enemySize }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <mat-form-field *ngIf="enemyNeedsDiceRoll(size.value)">
-          <mat-label>Enemy {{ i + 1 }}, # of friends</mat-label>
-          <input matInput formControlName="enemyfriends" type="number" />
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-label
-            >Enemy {{ i + 1 }}, What are You/They Gonna do About it?</mat-label
-          >
-          <mat-select formControlName="revengeType">
-            <mat-option
-              *ngFor="let enemyRevengeType of enemyRevengeTypes"
-              [value]="enemyRevengeType"
-            >
-              {{ enemyRevengeType }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
+    <ng-template matStepLabel>List Your Enemies</ng-template>
+    <app-enemies [(enemies)]="enemies"></app-enemies>
+    <button mat-button matStepperNext>Next</button>
   </mat-step>
 
   <mat-step [stepControl]="loveAffairs" editable="true">
@@ -348,5 +76,5 @@
     </div>
   </mat-step>
 </mat-horizontal-stepper>
-<button (click)="showFormControl()">Show Lifepath</button>
+
 // TODO: Abstract classes for role lifepaths

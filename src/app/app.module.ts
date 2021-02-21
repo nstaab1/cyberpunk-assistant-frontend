@@ -14,6 +14,9 @@ import { LifeGoalsComponent } from './playable-character-creation-wizard/life-go
 import { RockerboyLifepathComponent } from './playable-character-creation-wizard/role-lifepaths/rockerboy-lifepath/rockerboy-lifepath.component';
 import { SoloLifepathComponent } from './playable-character-creation-wizard/role-lifepaths/solo-lifepath/solo-lifepath.component';
 import { DemographicsComponent } from './playable-character-creation-wizard/demographics/demographics.component';
+import { LifepathComponent } from './playable-character-creation-wizard/lifepath/lifepath.component';
+import { FriendsComponent } from './playable-character-creation-wizard/friends/friends.component';
+import { EnemiesComponent } from './playable-character-creation-wizard/enemies/enemies.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +28,9 @@ import { DemographicsComponent } from './playable-character-creation-wizard/demo
     RockerboyLifepathComponent,
     SoloLifepathComponent,
     DemographicsComponent,
+    LifepathComponent,
+    FriendsComponent,
+    EnemiesComponent,
   ],
   imports: [
     BrowserModule,
