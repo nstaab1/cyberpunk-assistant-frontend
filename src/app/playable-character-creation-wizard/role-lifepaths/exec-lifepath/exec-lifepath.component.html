@@ -1,0 +1,76 @@
+<form [formGroup]="execLifepath">
+  <div class="row">
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>What Kind of Corp Do You Work For?</mat-label>
+        <mat-select formControlName="execType">
+          <mat-option *ngFor="let execType of execTypes" [value]="execType">
+            {{ execType }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>What Division Do You Work In?</mat-label>
+        <mat-select formControlName="execDivision">
+          <mat-option
+            *ngFor="let execDivision of execDivisions"
+            [value]="execDivision"
+          >
+            {{ execDivision }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>How Good/Bad is Your Corp?</mat-label>
+        <mat-select formControlName="execCorpEthics">
+          <mat-option
+            *ngFor="let execCorpEthics of execCorpEthicsList"
+            [value]="execCorpEthics"
+          >
+            {{ execCorpEthics }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Where is Your Corp Based?</mat-label>
+        <mat-select formControlName="execCorpLocation">
+          <mat-option
+            *ngFor="let execCorpLocation of execCorpLocations"
+            [value]="execCorpLocation"
+          >
+            {{ execCorpLocation }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Who's Gunning for Your Group?</mat-label>
+        <mat-select formControlName="execEnemy">
+          <mat-option *ngFor="let execEnemy of execEnemies" [value]="execEnemy">
+            {{ execEnemy }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Current State with Your Boss</mat-label>
+        <mat-select formControlName="execBossRelationship">
+          <mat-option
+            *ngFor="let execBossRelationship of execBossRelationships"
+            [value]="execBossRelationship"
+          >
+            {{ execBossRelationship }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</form>

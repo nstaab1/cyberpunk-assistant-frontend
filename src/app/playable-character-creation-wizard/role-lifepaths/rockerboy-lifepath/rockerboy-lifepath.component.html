@@ -1,1 +1,74 @@
-<p>rockerboy-lifepath works!</p>
+<form [formGroup]="rockerBoyLifepath">
+  <div class="row">
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>What Kind of Rockerboy are You?</mat-label>
+        <mat-select formControlName="rockerboyType">
+          <mat-option
+            *ngFor="let rockerboyType of rockerboyTypes"
+            [value]="rockerboyType"
+          >
+            {{ rockerboyType }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Group Or Solo?</mat-label>
+        <mat-select formControlName="groupOrSolo">
+          <mat-option value="Solo">Solo</mat-option>
+          <mat-option value="Group">Group</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Were You Once in a Group?</mat-label>
+        <mat-select formControlName="oncePartOfAGroup">
+          <mat-option value="true">In a group previously</mat-option>
+          <mat-option value="false">Always been a solo act</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field *ngIf="previouslyInAGroup()">
+        <mat-label>Why Did You Leave Your Group?</mat-label>
+        <mat-select formControlName="reasonForLeaving">
+          <mat-option
+            *ngFor="let reasonForLeaving of reasonsForLeaving"
+            [value]="reasonForLeaving"
+          >
+            {{ reasonForLeaving }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Where Do You Perform?</mat-label>
+        <mat-select formControlName="performanceLocation">
+          <mat-option
+            *ngFor="let rockerboyType of rockerboyTypes"
+            [value]="rockerboyType"
+          >
+            {{ rockerboyType }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Who's Gunning for You/Your Group?</mat-label>
+        <mat-select formControlName="rockerboyEnemy">
+          <mat-option
+            *ngFor="let rockerboyEnemy of rockerboyEnemies"
+            [value]="rockerboyEnemy"
+          >
+            {{ rockerboyEnemy }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</form>

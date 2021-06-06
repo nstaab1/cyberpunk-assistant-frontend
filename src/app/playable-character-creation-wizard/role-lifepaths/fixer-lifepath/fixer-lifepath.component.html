@@ -1,0 +1,75 @@
+<form [formGroup]="fixerLifepath">
+  <div class="row">
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>What Kind of Fixer are You?</mat-label>
+        <mat-select formControlName="fixerType">
+          <mat-option *ngFor="let fixerType of fixerTypes" [value]="fixerType">
+            {{ fixerType }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Got a Partner, or Do You Work Alone?</mat-label>
+        <mat-select formControlName="hasPartner">
+          <mat-option value="true">Have a partner </mat-option>
+          <mat-option value="false">Work Alone </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6" *ngIf="hasPartner()">
+      <mat-form-field>
+        <mat-label>Who is your partner?</mat-label>
+        <mat-select formControlName="fixerPartner">
+          <mat-option
+            *ngFor="let fixerPartner of fixerPartners"
+            [value]="fixerPartner"
+          >
+            {{ fixerPartner }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>What's Your "Office" Like?</mat-label>
+        <mat-select formControlName="fixerOffice">
+          <mat-option
+            *ngFor="let fixerOffice of fixerOffices"
+            [value]="fixerOffice"
+          >
+            {{ fixerOffice }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Who are Your Side Clients?</mat-label>
+        <mat-select formControlName="fixerSideClients">
+          <mat-option
+            *ngFor="let fixerSideClients of fixerSideClientsList"
+            [value]="fixerSideClients"
+          >
+            {{ fixerSideClients }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Who's Gunning for You?</mat-label>
+        <mat-select formControlName="fixerEnemies">
+          <mat-option
+            *ngFor="let fixerEnemies of fixerEnemiesList"
+            [value]="fixerEnemies"
+          >
+            {{ fixerEnemies }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</form>

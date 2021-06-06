@@ -1,0 +1,53 @@
+<form [formGroup]="mediaLifepath">
+  <div class="row">
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>What Kind of Media are You?</mat-label>
+        <mat-select formControlName="mediaType">
+          <mat-option *ngFor="let mediaType of mediaTypes" [value]="mediaType">
+            {{ mediaType }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>How Does Your Work Reach the Public?</mat-label>
+        <mat-select formControlName="mediaDistribution">
+          <mat-option
+            *ngFor="let mediaDistribution of mediaDistributions"
+            [value]="mediaDistribution"
+          >
+            {{ mediaDistribution }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>How Ethical are You?</mat-label>
+        <mat-select formControlName="mediaEthics">
+          <mat-option
+            *ngFor="let mediaEthics of mediaEthicsList"
+            [value]="mediaEthics"
+          >
+            {{ mediaEthics }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>What Types of Stories Do You Want to Tell?</mat-label>
+        <mat-select formControlName="mediaStoryType">
+          <mat-option
+            *ngFor="let mediaStoryType of mediaStoryTypes"
+            [value]="mediaStoryType"
+          >
+            {{ mediaStoryType }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</form>

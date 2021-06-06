@@ -1,0 +1,25 @@
+<form [formGroup]="loveAffairs">
+  <button (click)="addLoveAffairs()">Add Love Affair</button>
+
+  <div
+    *ngFor="let loveAffair of loveAffairs.controls; let i = index"
+    [formGroupName]="i"
+  >
+    <mat-form-field>
+      <mat-label>Love Affair {{ i + 1 }} Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Love Affair {{ i + 1 }}, What Happened?</mat-label>
+      <mat-select formControlName="tragedy">
+        <mat-option
+          *ngFor="let loveAffairTragedy of loveAffairTragedies"
+          [value]="loveAffairTragedy"
+        >
+          {{ loveAffairTragedy }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</form>

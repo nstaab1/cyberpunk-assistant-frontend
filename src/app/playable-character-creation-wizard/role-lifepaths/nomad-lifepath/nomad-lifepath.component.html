@@ -1,0 +1,76 @@
+<form [formGroup]="nomadLifepath">
+  <div class="row">
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>How Big is Your Pack?</mat-label>
+        <mat-select formControlName="packSize">
+          <mat-option *ngFor="let packSize of packSizes" [value]="packSize">
+            {{ packSize }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Is Your Pack Based on Land, Air, or Sea?</mat-label>
+        <mat-select formControlName="packType">
+          <mat-option value="Land"> Land </mat-option>
+          <mat-option value="Air"> Air </mat-option>
+          <mat-option value="Sea"> Sea </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>What does your Pack do?</mat-label>
+        <mat-select formControlName="packOperation">
+          <mat-option
+            *ngFor="let packOperation of packOperations"
+            [value]="packOperation"
+          >
+            {{ packOperation }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>What Do You Do for Your Pack?</mat-label>
+        <mat-select formControlName="nomadPackRole">
+          <mat-option
+            *ngFor="let nomadPackRole of nomadPackRoles"
+            [value]="nomadPackRole"
+          >
+            {{ nomadPackRole }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>What's Your Pack's Overall Philosophy?</mat-label>
+        <mat-select formControlName="nomadPackPhilosophy">
+          <mat-option
+            *ngFor="let nomadPackPhilosophy of nomadPackPhilosophies"
+            [value]="nomadPackPhilosophy"
+          >
+            {{ nomadPackPhilosophy }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Who's Gunning for Your Pack?</mat-label>
+        <mat-select formControlName="nomadEnemies">
+          <mat-option
+            *ngFor="let nomadEnemies of nomadEnemiesList"
+            [value]="nomadEnemies"
+          >
+            {{ nomadEnemies }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</form>

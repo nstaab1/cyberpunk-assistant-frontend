@@ -1,45 +1,52 @@
 <form [formGroup]="demographics">
-  <mat-form-field>
-    <mat-label>Handle</mat-label>
-    <input matInput formControlName="handle" required />
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Select Role</mat-label>
-    <mat-select formControlName="role">
-      <mat-option *ngFor="let role of roles" [value]="role">
-        {{ role }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Cultural Region</mat-label>
-    <mat-select formControlName="culturalRegion">
-      <mat-option
-        *ngFor="let culturalRegion of culturalRegions"
-        [value]="culturalRegion"
-      >
-        {{ culturalRegion }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Language</mat-label>
-    <input
-      type="text"
-      matInput
-      formControlName="language"
-      [matAutocomplete]="auto"
-    />
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option
-        *ngFor="let language of languageOptions | async"
-        [value]="language"
-      >
-        {{ language }}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
+  <div class="row">
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Handle</mat-label>
+        <input matInput formControlName="handle" required />
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Select Role</mat-label>
+        <mat-select formControlName="role">
+          <mat-option *ngFor="let role of roles" [value]="role">
+            {{ role }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Cultural Region</mat-label>
+        <mat-select formControlName="culturalRegion">
+          <mat-option
+            *ngFor="let culturalRegion of culturalRegions"
+            [value]="culturalRegion"
+          >
+            {{ culturalRegion }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Language</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="language"
+          [matAutocomplete]="auto"
+        />
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option
+            *ngFor="let language of languageOptions | async"
+            [value]="language"
+          >
+            {{ language }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+  </div>
 </form>

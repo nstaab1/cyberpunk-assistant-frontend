@@ -1,0 +1,78 @@
+<form [formGroup]="medtechLifepath">
+  <div class="row">
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>What Kind of Medtech are You?</mat-label>
+        <mat-select formControlName="medtechType">
+          <mat-option
+            *ngFor="let medtechType of medtechTypes"
+            [value]="medtechType"
+          >
+            {{ medtechType }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Got a Partner, or Do You Work Alone?</mat-label>
+        <mat-select formControlName="hasPartner">
+          <mat-option value="true">Have a partner </mat-option>
+          <mat-option value="false">Work Alone </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6" *ngIf="hasPartner()">
+      <mat-form-field>
+        <mat-label>Tell Us About Your Partner(s).</mat-label>
+        <mat-select formControlName="medtechPartner">
+          <mat-option
+            *ngFor="let medtechPartner of medtechPartners"
+            [value]="medtechPartner"
+          >
+            {{ medtechPartner }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>What's Your Workspace Like?</mat-label>
+        <mat-select formControlName="medtechWorkspace">
+          <mat-option
+            *ngFor="let medtechWorkspace of medtechWorkspaces"
+            [value]="medtechWorkspace"
+          >
+            {{ medtechWorkspace }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Who are Your Main Clients?</mat-label>
+        <mat-select formControlName="medtechClient">
+          <mat-option
+            *ngFor="let medtechClient of medtechClients"
+            [value]="medtechClient"
+          >
+            {{ medtechClient }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Where Do You Get Your Supplies?</mat-label>
+        <mat-select formControlName="medtechSupplier">
+          <mat-option
+            *ngFor="let medtechSupplier of medtechSuppliers"
+            [value]="medtechSupplier"
+          >
+            {{ medtechSupplier }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</form>

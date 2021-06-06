@@ -8,9 +8,8 @@ describe('PlayableCharacterCreationWizardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlayableCharacterCreationWizardComponent ]
-    })
-    .compileComponents();
+      declarations: [PlayableCharacterCreationWizardComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

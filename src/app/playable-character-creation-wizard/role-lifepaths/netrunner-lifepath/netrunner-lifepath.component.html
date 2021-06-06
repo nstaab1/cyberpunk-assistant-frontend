@@ -1,0 +1,91 @@
+<form [formGroup]="netrunnerLifepath">
+  <div class="row">
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>What Kind of Runner are You?</mat-label>
+        <mat-select formControlName="netrunnerType">
+          <mat-option
+            *ngFor="let netrunnerType of netrunnerTypes"
+            [value]="netrunnerType"
+          >
+            {{ netrunnerType }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Got a Partner, or Do You Work Alone?</mat-label>
+        <mat-select formControlName="hasPartner">
+          <mat-option value="true">Have a partner </mat-option>
+          <mat-option value="false">Work Alone </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6" *ngIf="hasPartner()">
+      <mat-form-field>
+        <mat-label>If You Have a Partner, Who are They?</mat-label>
+        <mat-select formControlName="netrunnerPartner">
+          <mat-option
+            *ngFor="let netrunnerPartner of netrunnerPartners"
+            [value]="netrunnerPartner"
+          >
+            {{ netrunnerPartner }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>What's Your Workspace Like?</mat-label>
+        <mat-select formControlName="netrunnerWorkspace">
+          <mat-option
+            *ngFor="let netrunnerWorkspace of netrunnerWorkspaces"
+            [value]="netrunnerWorkspace"
+          >
+            {{ netrunnerWorkspace }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Who are Some of Your Other Clients?</mat-label>
+        <mat-select formControlName="netrunnerClient">
+          <mat-option
+            *ngFor="let netrunnerClient of netrunnerClients"
+            [value]="netrunnerClient"
+          >
+            {{ netrunnerClient }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Where Do You Get Your Programs?</mat-label>
+        <mat-select formControlName="netrunnerProgramProvider">
+          <mat-option
+            *ngFor="let netrunnerProgramProvider of netrunnerProgramProviders"
+            [value]="netrunnerProgramProvider"
+          >
+            {{ netrunnerProgramProvider }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Who's Gunning for You?</mat-label>
+        <mat-select formControlName="netrunnerEnemy">
+          <mat-option
+            *ngFor="let netrunnerEnemy of netrunnerEnemies"
+            [value]="netrunnerEnemy"
+          >
+            {{ netrunnerEnemy }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</form>

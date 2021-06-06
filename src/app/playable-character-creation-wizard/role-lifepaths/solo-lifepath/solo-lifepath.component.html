@@ -1,1 +1,50 @@
-<p>solo-lifepath works!</p>
+<form [formGroup]="soloLifepath">
+  <div class="row">
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>What Kind of Solo are You?</mat-label>
+        <mat-select formControlName="soloType">
+          <mat-option *ngFor="let soloType of soloTypes" [value]="soloType">
+            {{ soloType }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>What's Your Moral Compass Like?</mat-label>
+        <mat-select formControlName="moralCompass">
+          <mat-option
+            *ngFor="let soloMoralCompase of soloMoralCompases"
+            [value]="soloMoralCompase"
+          >
+            {{ soloMoralCompase }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>What's Your Operational Territory?</mat-label>
+        <mat-select formControlName="operationalTerritory">
+          <mat-option
+            *ngFor="let operationalTerritory of operationalTerritories"
+            [value]="operationalTerritory"
+          >
+            {{ operationalTerritory }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Who's Gunning for You?</mat-label>
+        <mat-select formControlName="soloEnemy">
+          <mat-option *ngFor="let soloEnemy of soloEnemies" [value]="soloEnemy">
+            {{ soloEnemy }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,69 @@
+<form [formGroup]="lawmanLifepath">
+  <div class="row">
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>What is Your Position on the Force?</mat-label>
+        <mat-select formControlName="lawmanPosition">
+          <mat-option
+            *ngFor="let lawmanPosition of lawmanPositions"
+            [value]="lawmanPosition"
+          >
+            {{ lawmanPosition }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>How Wide is Your Group's Jurisdiction?</mat-label>
+        <mat-select formControlName="lawmanJurisdiction">
+          <mat-option
+            *ngFor="let lawmanJurisdiction of lawmanJurisdictions"
+            [value]="lawmanJurisdiction"
+          >
+            {{ lawmanJurisdiction }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>How Corrupt is Your Group??</mat-label>
+        <mat-select formControlName="lawmanGroupCorruption">
+          <mat-option
+            *ngFor="let lawmanGroupCorruption of lawmanGroupCorruptions"
+            [value]="lawmanGroupCorruption"
+          >
+            {{ lawmanGroupCorruption }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Who's Gunning for Your Group?</mat-label>
+        <mat-select formControlName="lawmanEnemies">
+          <mat-option
+            *ngFor="let lawmanEnemies of lawmanEnemiesList"
+            [value]="lawmanEnemies"
+          >
+            {{ lawmanEnemies }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Who is Your Group's Major Target?</mat-label>
+        <mat-select formControlName="lawmanTarget">
+          <mat-option
+            *ngFor="let lawmanTarget of lawmanTargets"
+            [value]="lawmanTarget"
+          >
+            {{ lawmanTarget }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</form>

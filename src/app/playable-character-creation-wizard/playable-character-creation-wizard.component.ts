@@ -2,8 +2,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { LOVE_AFFAIR_TRAGEDIES } from '../data/player-creators-data';
-
 @Component({
   selector: 'app-playable-character-creation-wizard',
   templateUrl: './playable-character-creation-wizard.component.html',
@@ -18,9 +16,8 @@ export class PlayableCharacterCreationWizardComponent implements OnInit {
   loveAffairs: FormArray;
   lifeGoals: FormGroup;
   roleLifePath: FormGroup;
+  stats: FormGroup;
   isEditable = false;
-
-  loveAffairTragedies = LOVE_AFFAIR_TRAGEDIES;
 
   constructor(private fb: FormBuilder) {}
 
@@ -73,18 +70,113 @@ export class PlayableCharacterCreationWizardComponent implements OnInit {
       lifeGoal: ['', Validators.required],
     });
 
-    this.roleLifePath = this.fb.group({
-      name: ['', Validators.required],
+    this.demographics.get('role').valueChanges.subscribe((val) => {
+      switch (val) {
+        case 'Rockerboy':
+          this.roleLifePath = this.fb.group({
+            rockerboyType: ['', Validators.required],
+            groupOrSolo: ['', Validators.required],
+            oncePartOfAGroup: [false, Validators.required],
+            reasonForLeaving: '',
+            performanceLocation: ['', Validators.required],
+            rockerboyEnemy: ['', Validators.required],
+          });
+          break;
+        case 'Solo':
+          this.roleLifePath = this.fb.group({
+            soloType: ['', Validators.required],
+            moralCompass: ['', Validators.required],
+            operationalTerritory: ['', Validators.required],
+            soloEnemy: ['', Validators.required],
+          });
+          break;
+        case 'Netrunner':
+          this.roleLifePath = this.fb.group({
+            netrunnerType: ['', Validators.required],
+            hasPartner: [false, Validators.required],
+            netrunnerPartner: '',
+            netrunnerWorkspace: ['', Validators.required],
+            netrunnerClient: ['', Validators.required],
+            netrunnerProgramProvider: ['', Validators.required],
+            netrunnerEnemy: ['', Validators.required],
+          });
+          break;
+        case 'Tech':
+          this.roleLifePath = this.fb.group({
+            techType: ['', Validators.required],
+            hasPartner: [false, Validators.required],
+            techPartner: '',
+            techWorkspace: ['', Validators.required],
+            techClient: ['', Validators.required],
+            techSupplier: ['', Validators.required],
+            techEnemy: ['', Validators.required],
+          });
+          break;
+        case 'Medtech':
+          this.roleLifePath = this.fb.group({
+            medtechType: ['', Validators.required],
+            hasPartner: [false, Validators.required],
+            medtechPartner: ['', Validators.required],
+            medtechWorkspace: ['', Validators.required],
+            medtechClient: ['', Validators.required],
+            medtechSupplier: ['', Validators.required],
+          });
+          break;
+        case 'Media':
+          this.roleLifePath = this.fb.group({
+            mediaType: ['', Validators.required],
+            mediaDistribution: ['', Validators.required],
+            mediaEthics: ['', Validators.required],
+            mediaStoryType: ['', Validators.required],
+          });
+          break;
+        case 'Exec':
+          this.roleLifePath = this.fb.group({
+            execType: ['', Validators.required],
+            execDivision: ['', Validators.required],
+            execCorpEthics: ['', Validators.required],
+            execCorpLocation: ['', Validators.required],
+            execEnemy: ['', Validators.required],
+            execBossRelationship: ['', Validators.required],
+          });
+          break;
+        case 'Lawman':
+          this.roleLifePath = this.fb.group({
+            lawmanPosition: ['', Validators.required],
+            lawmanJurisdiction: ['', Validators.required],
+            lawmanGroupCorruption: ['', Validators.required],
+            lawmanEnemies: ['', Validators.required],
+            lawmanTarget: ['', Validators.required],
+          });
+          break;
+        case 'Fixer':
+          this.roleLifePath = this.fb.group({
+            fixerType: ['', Validators.required],
+            hasPartner: [false, Validators.required],
+            fixerPartner: ['', Validators.required],
+            fixerOffice: ['', Validators.required],
+            fixerSideClients: ['', Validators.required],
+            fixerEnemies: ['', Validators.required],
+          });
+          break;
+        case 'Nomad':
+          this.roleLifePath = this.fb.group({
+            packSize: ['', Validators.required],
+            packType: ['', Validators.required],
+            packOperation: ['', Validators.required],
+            nomadPackRole: ['', Validators.required],
+            nomadPackPhilosophy: ['', Validators.required],
+            nomadEnemies: ['', Validators.required],
+          });
+          break;
+        default:
+        // code block
+      }
     });
-  }
 
-  public addLoveAffairs(): void {
-    this.loveAffairs.push(
-      this.fb.group({
-        name: '',
-        tragedy: '',
-      })
-    );
+    this.stats = this.fb.group({
+      strength: ['', Validators.required],
+    });
   }
 
   roleLifePathChange(roleLifePath: FormGroup): void {

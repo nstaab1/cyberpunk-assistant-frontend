@@ -1,0 +1,85 @@
+<form [formGroup]="techLifepath">
+  <div class="row">
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>What Kind of Tech are You?</mat-label>
+        <mat-select formControlName="techType">
+          <mat-option *ngFor="let techType of techTypes" [value]="techType">
+            {{ techType }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Got a Partner, or Do You Work Alone?</mat-label>
+        <mat-select formControlName="hasPartner">
+          <mat-option value="true">Have a partner </mat-option>
+          <mat-option value="false">Work Alone </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6" *ngIf="hasPartner()">
+      <mat-form-field>
+        <mat-label>If You Have a Partner, Who are They?</mat-label>
+        <mat-select formControlName="techPartner">
+          <mat-option
+            *ngFor="let techPartner of techPartners"
+            [value]="techPartner"
+          >
+            {{ techPartner }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>What's Your Workspace Like?</mat-label>
+        <mat-select formControlName="techWorkspace">
+          <mat-option
+            *ngFor="let techWorkspace of techWorkspaces"
+            [value]="techWorkspace"
+          >
+            {{ techWorkspace }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Who are Your Main Clients?</mat-label>
+        <mat-select formControlName="techClient">
+          <mat-option
+            *ngFor="let techClient of techClients"
+            [value]="techClient"
+          >
+            {{ techClient }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Where Do You Get Your Supplies?</mat-label>
+        <mat-select formControlName="techSupplier">
+          <mat-option
+            *ngFor="let techSupplier of techSuppliers"
+            [value]="techSupplier"
+          >
+            {{ techSupplier }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-md-3 col-sm-6">
+      <mat-form-field>
+        <mat-label>Who's Gunning For You?</mat-label>
+        <mat-select formControlName="techEnemy">
+          <mat-option *ngFor="let techEnemy of techEnemies" [value]="techEnemy">
+            {{ techEnemy }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</form>

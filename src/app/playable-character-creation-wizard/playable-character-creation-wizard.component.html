@@ -1,7 +1,7 @@
 <h2>Character Creation Wizard</h2>
-<mat-horizontal-stepper linear #stepper>
+<mat-vertical-stepper linear #stepper>
   <mat-step [stepControl]="demographics" editable="true">
-    <ng-template matStepLabel>Fill out your name</ng-template>
+    <ng-template matStepLabel>Demographics</ng-template>
     <app-demographics [(demographics)]="demographics"></app-demographics>
     <button mat-button matStepperNext>Next</button>
   </mat-step>
@@ -18,63 +18,75 @@
     <button mat-button matStepperNext>Next</button>
   </mat-step> -->
 
-  <mat-step [stepControl]="enemies" editable="true">
+  <!-- <mat-step [stepControl]="enemies" editable="true">
     <ng-template matStepLabel>List Your Enemies</ng-template>
     <app-enemies [(enemies)]="enemies"></app-enemies>
     <button mat-button matStepperNext>Next</button>
-  </mat-step>
+  </mat-step> -->
 
-  <mat-step [stepControl]="loveAffairs" editable="true">
-    <form [formGroup]="loveAffairs">
-      <ng-template matStepLabel>List your love affairs</ng-template>
+  <!-- <mat-step [stepControl]="loveAffairs" editable="true">
+    <ng-template matStepLabel>List your love affairs</ng-template>
+    <app-love-affairs [(loveAffairs)]="loveAffairs"></app-love-affairs>
+    <button mat-button matStepperNext>Next</button>
+  </mat-step> -->
 
-      <button (click)="addLoveAffairs()">Add Love Affair</button>
-
-      <div
-        *ngFor="let loveAffair of loveAffairs.controls; let i = index"
-        [formGroupName]="i"
-      >
-        <mat-form-field>
-          <mat-label>Love Affair {{ i + 1 }} Name</mat-label>
-          <input matInput formControlName="name" />
-        </mat-form-field>
-
-        <mat-form-field>
-          <mat-label>Love Affair {{ i + 1 }}, What Happened?</mat-label>
-          <mat-select formControlName="tragedy">
-            <mat-option
-              *ngFor="let loveAffairTragedy of loveAffairTragedies"
-              [value]="loveAffairTragedy"
-            >
-              {{ loveAffairTragedy }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-      <div>
-        <button mat-button matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  // TODO: Move the rest of the above mat steps into their own components
-  <mat-step [stepControl]="lifeGoals" editable="true">
+  <!-- <mat-step [stepControl]="lifeGoals" editable="true">
     <ng-template matStepLabel>Life Goals</ng-template>
     <app-life-goals [(lifeGoals)]="lifeGoals"></app-life-goals>
-    <div>
-      <button mat-button matStepperNext>Next</button>
-    </div>
-  </mat-step>
+    <button mat-button matStepperNext>Next</button>
+  </mat-step> -->
 
   <mat-step [stepControl]="roleLifePath" editable="true">
     <ng-template matStepLabel>Role Life Path</ng-template>
-    <app-role-lifepaths
-      [(roleLifePath)]="roleLifePath"
-      [demographics]="demographics"
-    ></app-role-lifepaths>
-    <div>
-      <button mat-button matStepperNext>Next</button>
-    </div>
+    <app-rockerboy-lifepath
+      (rockerBoyChange)="roleLifePathChange($event)"
+      *ngIf="demographics.get('role').value === 'Rockerboy'"
+    ></app-rockerboy-lifepath>
+    <app-solo-lifepath
+      (soloChange)="roleLifePathChange($event)"
+      *ngIf="demographics.get('role').value === 'Solo'"
+    ></app-solo-lifepath>
+    <app-netrunner-lifepath
+      (netrunnerChange)="roleLifePathChange($event)"
+      *ngIf="demographics.get('role').value === 'Netrunner'"
+    ></app-netrunner-lifepath>
+    <app-tech-lifepath
+      (techChange)="roleLifePathChange($event)"
+      *ngIf="demographics.get('role').value === 'Tech'"
+    ></app-tech-lifepath>
+    <app-medtech-lifepath
+      (medtechChange)="roleLifePathChange($event)"
+      *ngIf="demographics.get('role').value === 'Medtech'"
+    ></app-medtech-lifepath>
+    <app-media-lifepath
+      (mediaChange)="roleLifePathChange($event)"
+      *ngIf="demographics.get('role').value === 'Media'"
+    ></app-media-lifepath>
+    <app-exec-lifepath
+      (execChange)="roleLifePathChange($event)"
+      *ngIf="demographics.get('role').value === 'Exec'"
+    ></app-exec-lifepath>
+    <app-lawman-lifepath
+      (lawmanChange)="roleLifePathChange($event)"
+      *ngIf="demographics.get('role').value === 'Lawman'"
+    ></app-lawman-lifepath>
+    <app-fixer-lifepath
+      (fixerChange)="roleLifePathChange($event)"
+      *ngIf="demographics.get('role').value === 'Fixer'"
+    ></app-fixer-lifepath>
+    <app-nomad-lifepath
+      (nomadChange)="roleLifePathChange($event)"
+      *ngIf="demographics.get('role').value === 'Nomad'"
+    ></app-nomad-lifepath>
+    <button mat-button matStepperNext>Next</button>
   </mat-step>
-</mat-horizontal-stepper>
 
-// TODO: Abstract classes for role lifepaths
+  <mat-step [stepControl]="stats" editable="true">
+    <ng-template matStepLabel>Stats</ng-template>
+    <app-player-statistics [(stats)]="stats"></app-player-statistics>
+    <button mat-button matStepperNext>Next</button>
+  </mat-step>
+</mat-vertical-stepper>
+
+<p *ngIf="roleLifePath">{{ roleLifePath.value | json }}</p>
+<!-- TODO: Abstract classes for role lifepaths -->
