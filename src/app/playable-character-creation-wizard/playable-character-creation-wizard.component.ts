@@ -16,7 +16,7 @@ export class PlayableCharacterCreationWizardComponent implements OnInit {
   loveAffairs: FormArray;
   lifeGoals: FormGroup;
   roleLifePath: FormGroup;
-  stats: FormGroup;
+  playerStatistics: FormGroup;
   isEditable = false;
 
   constructor(private fb: FormBuilder) {}
@@ -173,9 +173,18 @@ export class PlayableCharacterCreationWizardComponent implements OnInit {
         // code block
       }
     });
-
-    this.stats = this.fb.group({
-      strength: ['', Validators.required],
+    // TODO: Add validator so that no stat is higher than 8 or lower than 2
+    this.playerStatistics = this.fb.group({
+      intelligence: [null, Validators.required],
+      willpower: [null, Validators.required],
+      cool: [null, Validators.required],
+      empathy: [null, Validators.required],
+      technique: [null, Validators.required],
+      reflexes: [null, Validators.required],
+      luck: [null, Validators.required],
+      body: [null, Validators.required],
+      dexterity: [null, Validators.required],
+      movement: [null, Validators.required],
     });
   }
 

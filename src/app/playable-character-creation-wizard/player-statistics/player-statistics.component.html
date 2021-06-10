@@ -1,11 +1,51 @@
-<form [formGroup]="stats">
+<form [formGroup]="playerStatistics">
   <mat-form-field>
-    <mat-label>Life Goals?</mat-label>
-    <mat-select formControlName="strentgh">
-      <mat-option value="test">test</mat-option>
-      <!-- <mat-option *ngFor="let lifeGoal of lifeGoalData" [value]="lifeGoal">
-        {{ lifeGoal }}
-      </mat-option> -->
-    </mat-select>
+    <mat-label>INT</mat-label>
+    <input type="number" formControlName="intelligence" matInput />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>WILL</mat-label>
+    <input type="number" formControlName="willpower" matInput />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>COOL</mat-label>
+    <input type="number" formControlName="cool" matInput />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>EMP</mat-label>
+    <input type="number" formControlName="empathy" matInput />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>TECH</mat-label>
+    <input type="number" formControlName="technique" matInput />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>REF</mat-label>
+    <input type="number" formControlName="reflexes" matInput />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>LUCK</mat-label>
+    <input type="number" formControlName="luck" matInput />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>BODY</mat-label>
+    <input type="number" formControlName="body" matInput />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>DEX</mat-label>
+    <input type="number" formControlName="dexterity" matInput />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>MOVE</mat-label>
+    <input type="number" formControlName="movement" matInput />
   </mat-form-field>
 </form>

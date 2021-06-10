@@ -7,9 +7,13 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./player-statistics.component.scss'],
 })
 export class PlayerStatisticsComponent implements OnInit {
-  @Input() stats: FormGroup;
+  @Input() playerStatistics: FormGroup;
 
   constructor() {}
 
   ngOnInit() {}
+
+  showVal() {
+    console.log(this.playerStatistics.value);
+  }
 }

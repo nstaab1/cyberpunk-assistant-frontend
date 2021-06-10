@@ -1,40 +1,40 @@
 <h2>Character Creation Wizard</h2>
 <mat-vertical-stepper linear #stepper>
-  <mat-step [stepControl]="demographics" editable="true">
+  <!-- <mat-step [stepControl]="demographics" editable="true">
     <ng-template matStepLabel>Demographics</ng-template>
     <app-demographics [(demographics)]="demographics"></app-demographics>
     <button mat-button matStepperNext>Next</button>
-  </mat-step>
+  </mat-step> -->
 
   <!-- <mat-step [stepControl]="lifepath" editable="true">
     <ng-template matStepLabel>Life Path</ng-template>
     <app-lifepath [(lifepath)]="lifepath"></app-lifepath>
     <button mat-button matStepperNext>Next</button>
-  </mat-step> -->
+  </mat-step>
 
-  <!-- <mat-step [stepControl]="friends" editable="true">
+  <mat-step [stepControl]="friends" editable="true">
     <ng-template matStepLabel>List Your Friends</ng-template>
     <app-friends [(friends)]="friends"></app-friends>
     <button mat-button matStepperNext>Next</button>
-  </mat-step> -->
+  </mat-step>
 
-  <!-- <mat-step [stepControl]="enemies" editable="true">
+  <mat-step [stepControl]="enemies" editable="true">
     <ng-template matStepLabel>List Your Enemies</ng-template>
     <app-enemies [(enemies)]="enemies"></app-enemies>
     <button mat-button matStepperNext>Next</button>
-  </mat-step> -->
+  </mat-step>
 
-  <!-- <mat-step [stepControl]="loveAffairs" editable="true">
+  <mat-step [stepControl]="loveAffairs" editable="true">
     <ng-template matStepLabel>List your love affairs</ng-template>
     <app-love-affairs [(loveAffairs)]="loveAffairs"></app-love-affairs>
     <button mat-button matStepperNext>Next</button>
-  </mat-step> -->
+  </mat-step>
 
-  <!-- <mat-step [stepControl]="lifeGoals" editable="true">
+  <mat-step [stepControl]="lifeGoals" editable="true">
     <ng-template matStepLabel>Life Goals</ng-template>
     <app-life-goals [(lifeGoals)]="lifeGoals"></app-life-goals>
     <button mat-button matStepperNext>Next</button>
-  </mat-step> -->
+  </mat-step>
 
   <mat-step [stepControl]="roleLifePath" editable="true">
     <ng-template matStepLabel>Role Life Path</ng-template>
@@ -79,11 +79,11 @@
       *ngIf="demographics.get('role').value === 'Nomad'"
     ></app-nomad-lifepath>
     <button mat-button matStepperNext>Next</button>
-  </mat-step>
+  </mat-step> -->
 
-  <mat-step [stepControl]="stats" editable="true">
+  <mat-step [stepControl]="playerStatistics" editable="true">
     <ng-template matStepLabel>Stats</ng-template>
-    <app-player-statistics [(stats)]="stats"></app-player-statistics>
+    <app-player-statistics [(playerStatistics)]="playerStatistics"></app-player-statistics>
     <button mat-button matStepperNext>Next</button>
   </mat-step>
 </mat-vertical-stepper>
